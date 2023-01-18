@@ -1,0 +1,42 @@
+<head>
+    <link rel="stylesheet" href="equipment.css">
+</head>
+<h1>Equipments Available</h1>
+<div class="project">
+    <div class="hospital">
+        <% let totalPrice = 0; %> 
+        <% let totalNumber = 0; %> 
+        <% for(let i=0;i<equip.length;i++){ %> 
+            <% totalPrice+= equip[i].Price *equip[i].no_Tools; %> 
+            <% totalNumber+= equip[i].no_Tools; %> 
+            <div class="box">
+                <img src="<%= equip[i].Name %>.jpg" alt="">
+                <div class="content">
+                    <h3><%= equip[i].Name%></h3>
+                    <h4>Price: $<%=equip[i].Price %></h4>
+                    <div class="opop">
+                        <p class="unit">Quantity: <p class="quantity">&nbsp;&nbsp;<%= equip[i].no_Tools %> </p></p></div>
+                       
+                    <form action="/Equipments/update/<%= equip[i].Code %>-<%= equip[i].no_Tools+1 %>" method="POST">
+                        
+                        <button type="submit" class="btn_area1" >
+                            <i class="fa-solid fa-plus"></i>
+                            <span class="btn2"></span>
+                        </button>
+                    </form>
+                    <form action="/Equipments/update/<%= equip[i].Code %>-<%= equip[i].no_Tools == 0?0:equip[i].no_Tools-1 %>" method="POST">
+                        <button type="submit" class="btn_area2" >
+                            <i class="fa-solid fa-minus"></i>
+                            <span class="btn2"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        <% } %> 
+    </div>
+    <div class="right_bar">
+        <p><span>Total Price</span><span>$<%= totalPrice %> </span></p>
+        <hr>
+        <p><span>Total Number</span><span><%= totalNumber %></span></p>
+    </div>
+</div>

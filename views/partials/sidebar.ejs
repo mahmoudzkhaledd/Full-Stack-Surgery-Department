@@ -1,0 +1,64 @@
+<input type="checkbox" id="nav-toggle">
+<div class="sidebar">
+    <div class="sidebar-brand">
+        <h2><span class="las la-clinic-medical"></span> <span>Hospital</span></h2>
+    </div>
+    <div class="sidebar-menu">
+        <ul>
+            <li>
+                <% let h = active == 1?"active":""; %> 
+                <% let d = active == 2?"active":""; %> 
+                <% let n = active == 3?"active":""; %> 
+                <% let p = active == 4?"active":""; %> 
+                <% let e = active == 5?"active":""; %> 
+                <% let Ao = active == 6?"active":""; %> 
+                <% let o = active == 7?"active":""; %> 
+                <% let pL = active == 8?"active":""; %> 
+                <% let eq = active == 9?"active":""; %> 
+                
+                <a href="/dashboard" class = <%= h %>  ><span class="las la-home"></span>
+                    <span>Home</span></a>
+            </li>
+            <li>
+                <a href="/new-doctor" class = <%= d %>  ><span class="las la-stethoscope"></span>
+                    <span>Add Doctor</span></a>
+            </li>
+            <li>
+                <a href="/new-nurse"  class = <%= n %>  ><span class="las la-user"></span>
+                    <span>Add Nurse</span></a>
+            </li>
+            <li>
+                <a href="/new-patient" class = <%= p %> ><span class="las la-user-injured"></span>
+                    <span>Add Patients</span></a>
+            </li>
+
+            <li>
+                <a href="/new-employee"  class = <%= e %> ><span class="fa-solid fa-user"></span>
+                    <span>Add Employee</span></a>
+            </li>
+
+
+
+            <li>
+                <a href="/new-operations-1"   class = <%= Ao %>  ><span><i class="fa-solid fa-bed-pulse"></i></span>
+                    <span>Add Operation</span></a>
+            </li>
+
+            <li>
+                <a href="/operations"   class = <%= o %>  ><span><i class="fa-solid fa-bed-pulse"></i></span>
+                    <span>Operations</span></a>
+            </li>
+
+            <li>
+                <a href="/patient-left" class = <%= pL %> ><span><i class="fa-solid fa-hospital-user"></i></span>
+                    <span>Patients Left</span></a>
+            </li>
+
+            <li>
+                <a href="/Equipments" class = <%= eq %> ><span>  <i class="fa-solid fa-gear"></i>  </span>
+                    <span>View Equipments</span></a>
+            </li>
+
+        </ul>
+    </div>
+</div>

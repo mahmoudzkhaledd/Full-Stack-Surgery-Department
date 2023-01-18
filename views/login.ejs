@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!--
+        <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Login</title>
+</head>
+<body>
+    <section class="left-sec">
+        <img src="Medical prescription-pana.svg" class="svg-img">
+        <h1>Surgery Department</h1>
+    </section>
+    <section class="right-sec">
+        <div class="sizeable">
+        <i class="fa fa-heartbeat" style="width: 100%;font-size:7em;color:#285cc5;"></i>
+        <p class="hello">Hello Again!</p>
+        <p class="welcome">Welcome to our Surgery Department site</p>
+        <div class="container">
+            <div class="input-fields">
+                <input type="text" name="email" id="email1"  placeholder="Email">
+                <input type="password" name="password" id="password1"  placeholder="Password">
+                <div class="chkfor">
+                    <div class="check-box">
+                        <input type="checkbox" name="rememberrr" id="remember"  unchecked="">
+                        <label for="remember" unchecked name = "remember">
+                            &nbsp Remember Me
+                        </label>
+                    </div>
+                    <a href="">Forget password</a>
+                </div>
+            </div>
+
+
+
+            <button class="login" id = "logbtn">Login</button>
+
+
+
+            <script>
+
+                document.getElementById("logbtn")
+                .addEventListener("click",
+                function (aa) {
+                    aa.preventDefault();
+                    let email = document.getElementById('email1').value;
+                    
+                    let password = document.getElementById('password1').value;
+                    
+                    let errmsg = document.getElementById("errormsg");
+
+                    const options = {
+                        headers: new Headers({ 'Content-Type': 'application/json' }),
+                        method: 'POST',
+                        body: JSON.stringify({ email,password }),
+                    }
+                    
+                    fetch('/login', options)
+                        .then(function(response){return response.json();})
+                        .then((n) => {
+                            if(n.result != -1){
+                                //succeful login
+                                if(n.result == 2){
+                                    window.location.replace("/dashboard");
+                                }else if(n.result == 1){
+                                    window.location.replace("/doctormainpage");
+                                }
+                            } else { 
+                                //Email not found
+                                errmsg.innerHTML = "Error, please try again!";
+                                errmsg.style.color = "red";
+                            }
+                        });
+                })
+            </script>
+            <label class="msgerr" id = "errormsg">
+                <strong>
+                <!-- Error  -->
+            </strong>
+        </label>
+        </div>
+        </div>
+    </section>
+</body>
+</html>

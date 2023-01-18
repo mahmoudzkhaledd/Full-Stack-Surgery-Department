@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head style="min-width: 650px;">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="AddDoctor.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Doctor</title>
+
+</head>
+
+<body>
+
+    
+    
+    <form action="#">
+        <section> 
+            <section>
+                <% const att = ['Username','Password','First Name','Middle Name','Last Name','Email','Gender','Salary','Birth Date','City','Street','Building','Phone 1','Phone 2','Speciality','SSN','Calender ID']; %> 
+                <% let x = 2; %> 
+                <button id="btnAddDoc">Add</button>
+                <span id="errormsg"></span>
+                <div class="user-image">
+                    <div class="compination">
+                        <img src = "avatar.png" class = "chosen-image" alt="">
+                        <input type="file" name="image" id="image" >
+    
+                    </div>
+                    <div class="user-name" >
+                        <div>
+                            
+                        </div>
+                        <span> 
+                            <label >Username :</label>
+                            <input maxlength="60" class="aaa" required type="text" id="username" placeholder="Username">
+                        </span>
+                        <span> 
+                            <label >Password :</label>
+                            <input maxlength="90" class="aaa" required type="text" id="password" placeholder="Password">
+                        </span>
+                    </div>
+                </div>
+                
+    
+                <div class="main-cont">
+                    <% let m = x; %> 
+                    
+                    <% for(let j = x;j< att.length;j++){ %>
+                        <% if(att[j] != "Gender"){ %>
+                            <span > 
+                                <label ><%=att[j]%> :</label>
+                                <input required 
+                                maxlength="199"
+                                type="<%= (att[j] == "Birth Date")?"date":(att[j] == "Salary")?"number":"text" %>" 
+                                id="<%=att[j].toLowerCase().replace(' ', '')%>" 
+                                placeholder="<%= att[j] %>"
+                                <%= (att[j] == "Salary") ? `min = 1 value = 1 step=0.01`: `` %> >
+                            </span> 
+                        <% } else {%>
+                            <span>
+                                <label>Gender :</label>
+                                <select class="selection" id="gender">
+                                    <option value="1">Male</option>
+                                    <option value="0">Female</option>
+                                </select>
+                            </span>
+                        <% } %>   
+                    <% } %> 
+                </div>
+            </section>
+        </section>
+    </form>
+    
+</body>
+<script>   
+        
+    document.getElementById('btnAddDoc')
+    .addEventListener("click",(eo)=>{
+        eo.preventDefault();
+        let map1 = new FormData();
+        const inputs = document.getElementsByTagName("input");
+        let chk = true;
+       
+        for(let i=0;i<inputs.length;i++){
+            if(inputs[i].id != "btnAddDoc"){
+                if(inputs[i].value != ''){
+                    map1.append(inputs[i].id, inputs[i].value);
+                    inputs[i].style.border = "none";
+                } else {
+                    chk = false;
+                    inputs[i].style.border = "2px solid red";
+                    inputs[i].focus();
+                    break;
+                }
+            }
+        }
+        
+        if(chk){
+            map1.append('gender',document.getElementById("gender").value);
+            
+            let h = new Headers();
+            h.append('Accept','application/json');
+
+            let image = document.getElementById('image').files[0];
+            
+            map1.append("image",image);
+            
+            const options = {
+                method: 'POST',
+                mode:'no-cors',
+               // body: JSON.stringify(Object.fromEntries(map1)),
+                body: map1,
+                headers: h
+            }
+           
+            fetch('/new-doctor',options)
+            .then(response => response.json())
+            .then((reply) => {
+                if(!reply.reply)
+                    document.getElementById('errormsg').innerHTML = "username is already taken!";
+                else{
+                    window.location.replace(reply.link);
+                }
+            });
+        }
+        
+    });
+</script>
+</html>

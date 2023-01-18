@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="Omar" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="doctemplate.css" />
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous">
+    </script>
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="profile_box" id = "profile_box">
+            <img id = "profile-image" src="/images/<%= model.imageLoc %> " class="profile_pic">
+            <h3 id="Full-Name"><%= model.Fname + model.Lname %></h3>
+            <p id="speciality"><%= model.speciality %></p>
+            <div class="social_media">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <button id = "showmore" class="show-more" type="Follow">Show More</button>
+            <div class="profile_bottom" id = "profile_bottom" className="col-md-3">
+                <div class="bottom_container" id = "bottom_container">
+                    <div class="circle3">
+                        <div class="circle1">
+                            <div class="circle">
+                                <p><%= model.Rank %>%</p>
+                            </div>
+                            <small>Ranking</small>
+                        </div>
+                        <div class="circle4">
+                            <div class="circle">
+                                <p><%= model.Points %></p>
+                            </div>
+                            <p>Points</p>
+                        </div>
+                    </div>
+                    <div class="main_small1">
+                        <div class="small_conatainer1">
+                            <h3>Success Operations</h3>
+                            <progress max="100" value="80"></progress><br><br>
+                            <p>Ten procedures were completed and were successful.</p>
+                        </div>
+                        <div class="small_conatainer2">
+                            <h3>Day Attends</h3>
+                            </h3>
+                            <progress max="100" value="80"></progress><br><br>
+                            <br>
+                            <p>The physician was present for 10 days starting on the day he was hired by the hospital.</p>
+                        </div>
+                    </div>
+                    <div class="main_small2">
+                        <div class="small_conatainer3">
+                            <h3>Taken Number</h3>
+                            <progress max="100" value="80"></progress><br><br>
+                            <br>
+                            <p>There were 10 patients that preferred this doctor.</p>
+                        </div>
+                        <div class="small_conatainer4">
+                            <h3>Grade</h3>
+                            <progress max="100" value="80"></progress><br><br>
+                            <br>
+                            <p>He got a 4 GPA upon completing his studies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/scripts/docPage.js">
+
+    </script>
+</body>
+
+</html>

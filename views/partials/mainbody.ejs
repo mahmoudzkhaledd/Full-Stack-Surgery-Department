@@ -1,0 +1,183 @@
+<main>
+    <div class="cards">
+
+        <div class="card-single">
+            <div>
+                <h1>
+                    <%= overView.employee %>
+                </h1>
+                <span>Employees</span>
+            </div>
+            <div>
+                <span class="las la-users"></span>
+            </div>
+        </div>
+
+        <div class="card-single">
+            <div>
+                <h1>
+                    <%= overView.nurse %>
+                </h1>
+                <span>Nurses</span>
+            </div>
+            <div>
+                <span class="las la-user-nurse"></span>
+            </div>
+        </div>
+
+        <div class="card-single">
+            <div>
+                <h1>
+                    <%= overView.patient %>
+                </h1>
+                <span>Patients</span>
+            </div>
+            <div>
+                <span class="las la-wheelchair"></span>
+            </div>
+        </div>
+
+        <div class="card-single">
+            <div>
+                <h1>
+                    <%= overView.doctor %>
+                </h1>
+                <span>Doctor</span>
+            </div>
+            <div>
+                <span class="las la-stethoscope"></span>
+            </div>
+        </div>
+    </div>
+    <div class="recent-grid">
+        <div class="projects">
+            <div class="card">
+
+                <div class="card-header">
+                    <h3>Recent Patients</h3>
+
+                    <button> Read More <span class="las la-arrow-right">
+                        </span></button>
+                </div>
+
+
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table width="100%">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Email</td>
+                                    <td>Details</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% let y=patients.length> 10 ? 10 : patients.length; %>
+                                    <% for(let i=0;i<y;i++){ %>
+                                        <tr>
+                                            <td>
+                                                <%= patients[i].FName +" "+ patients[i].LName %>
+                                            </td>
+                                            <td>
+                                                <%= patients[i].Email %>
+                                            </td>
+                                            <td>
+                                                <a href=" /patient-<%=patients[i].username %> ">Go to Details</a>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            
+            
+            
+            <div class="card">
+
+                <div class="card-header">
+                    <h3>Nurses</h3>
+
+                    <button> Read More <span class="las la-arrow-right">
+                        </span></button>
+                </div>
+
+
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table width="100%">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Email</td>
+                                    <td>Details</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        sdasdasdasd dasd
+                                    </td>
+                                    <td>
+                                        as
+                                    </td>
+                                    <td>
+                                        <a href=" /patient-dasdas ">Go to Details</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="customers">
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Doctors</h3>
+
+                    <button>See More<span class="las la-arrow-right">
+                        </span></button>
+                </div>
+
+                <div class="card-body">
+                    <% let x=docs.length; %>
+                        <% for(let i=0;i<x;i++){ %>
+                            <div class="customer">
+                                <div class="info">
+                                    <% if(docs[i].imageLoc !=null && docs[i].imageLoc !="null" ){ %>
+                                        <img class="profile-image" src="/images/<%= docs[i].imageLoc%>" alt="">
+                                        <% }else{ %>
+                                            <span class="profile-image" style="margin-right: 15px;"></span>
+                                            <% } %>
+                                                <div>
+                                                    <h4>
+                                                        <%= docs[i].Name %>
+                                                    </h4>
+                                                    <small>
+                                                        <%= docs[i].speciality %>
+                                                    </small>
+                                                </div>
+                                </div>
+                                <div class="contact">
+                                    <a href="/doctor-<%= docs[i].code %>"><span class="las la-user-circle"></span></a>
+                                    <a href=""><span class="lab la-whatsapp"></span></a>
+                                    <a href=""><span class="las la-phone"></span></a>
+                                </div>
+                            </div>
+                            <% } %>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+</main>

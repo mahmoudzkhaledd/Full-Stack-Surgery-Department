@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous">
+  </script>
+
+  <link rel="stylesheet" href="volundon.css" />
+
+  <title>Volunteer & Donate Form</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="forms-container">
+      <div class="signin-signup">
+
+        <form action="/donate" method="POST" class="sign-in-form">
+          <h2 class="title">Donation</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" name = "Name" placeholder="Name" autocomplete="on" required>
+          </div>
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="email" name = "email" placeholder="Email" autocomplete="on" pattern=".*com" required>
+          </div>
+          <div class="input-field">
+            <i class="fa fa-mobile" aria-hidden="true"></i>
+            <input type="tel" name = "phone" placeholder="Phone number" autocomplete="on" required>
+          </div>
+          <div class="input-field">
+            <i class="fa fa-money" aria-hidden="true"></i>
+            <input type="number" name = "cost"
+            placeholder="Donation Amount" autocomplete="on" required>
+          </div>
+          <input type="submit" value="Donate" class="btn solid" />
+        </form>
+
+        <form action="/donate" method="POST" class="sign-up-form">
+          <h2 class="title">Volunteer Now</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Name" autocomplete="on" required>
+          </div>
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email" autocomplete="on" pattern=".*com" required>
+          </div>
+          <div class="input-field">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <input type="text" placeholder="Address" autocomplete="on" required>
+          </div>
+          <div class="input-field">
+            <i class="fa fa-mobile" aria-hidden="true"></i>
+            <input type="tel" placeholder="Phone number" autocomplete="on" required>
+          </div>
+          <div class="input-field">
+            <i class="fa fa-id-card-o" aria-hidden="true"></i>
+            <input type="text" placeholder="SSN" autocomplete="on" required>
+          </div>
+          <input type="submit" class="btn" value="I want to attend" />
+        </form>
+      </div>
+    </div>
+
+    <div class="panels-container">
+      <div class="panel left-panel">
+        <div class="content">
+          <h3>Volunteer</h3>
+          <p>
+            If you want to volunteer, press here
+          </p>
+          <button class="btn transparent" id="sign-up-btn">
+            Volunteer Now
+          </button>
+        </div>
+      </div>
+      <div class="panel right-panel">
+        <div class="content">
+          <h3>Donation</h3>
+          <p>
+            If you want to donate, press here
+          </p>
+          <button class="btn transparent" id="sign-in-btn">
+            Donate
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts/volundon.js"></script>
+</body>
+
+</html>

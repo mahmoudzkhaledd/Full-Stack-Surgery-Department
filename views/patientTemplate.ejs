@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="Omar" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="doctemplate.css" />
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous">
+    </script>
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="profile_box" id = "profile_box">
+            <img id = "profile-image" src="avatar.png" class="profile_pic">
+            <h3 id="Full-Name"><%= model.FName +" "+ model.LName %></h3>
+            <!-- <p id="speciality"></p> -->
+            <div class="social_media">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <button id = "showmore" class="show-more" type="Follow">Show More</button>
+            <div class="profile_bottom" id = "profile_bottom" className="col-md-3">
+                <div class="bottom_container" id = "bottom_container">
+                    <div class="circle3">
+                        <div class="circle1">
+                            <div class="circle">
+                                <p>99%</p>
+                            </div>
+                            <small>Ranking</small>
+                        </div>
+                        <div class="circle4">
+                            <div class="circle">
+                                <p>11%</p>
+                            </div>
+                            <p>Points</p>
+                        </div>
+                    </div>
+                    <div class="main_small1">
+                        <div class="small_conatainer1">
+                            <h3>Progress</h3>
+                            <progress max="100" value="80"></progress><br><br>
+                            <p>10:30 pm</p>
+                            <p>10:30 pm</p>
+                            <p>10:30 pm</p>
+                        </div>
+                        <div class="small_conatainer2">
+                            <h3>Progress</h3>
+                            </h3>
+                            <progress max="100" value="80"></progress><br><br>
+                            <br>
+                            <p>10:30 pm</p>
+                            <p>10:30 pm</p>
+                            <p>10:30 pm</p>
+                        </div>
+                    </div>
+                    <div class="main_small2">
+                        <div class="small_conatainer3">
+                            <h3>Progress</h3>
+                            <progress max="100" value="80"></progress><br><br>
+                            <br>
+                            <p>10:30 pm</p>
+                            <p>10:30 pm</p>
+                            <p>10:30 pm</p>
+                        </div>
+                        <div class="small_conatainer4">
+                            <h3>Progress</h3>
+                            <progress max="100" value="80"></progress><br><br>
+                            <br>
+                            <p>10:30 pm</p>
+                            <p>10:30 pm</p>
+                            <p>10:30 pm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/scripts/docPage.js">
+
+    </script>
+</body>
+
+</html>

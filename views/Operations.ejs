@@ -1,0 +1,35 @@
+<main>
+    <div class="recent-grid">
+        <div class="projects">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Operations</h3>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table width="100%">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Patient Name</td>
+                                    <td>Duration</td>
+                                    <td>Cost</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(let i =0;i<operations.length;i++){ %> 
+                                    <tr>
+                                        <td><%= operations[i].Name %></td>
+                                        <td><%= operations[i].Patient_Name %></td>
+                                        <td><%= operations[i].Duration %> Hrs</td>
+                                        <td>$<%= operations[i].Cost %></td>
+                                    </tr>
+                                <% } %> 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

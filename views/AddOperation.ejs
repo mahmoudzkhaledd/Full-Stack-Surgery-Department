@@ -1,0 +1,103 @@
+<div id="cont">
+    <div class="container">
+        <div class="title">Patient Data</div>
+        <form action = "/action_page_1" method="POST">
+            <div class="userinfo">
+                <div class="input">
+                    <div class="details">Patient Name</div>
+                    <div class="selecto">
+                        <select name="patient_name" id="slt-1">
+                            <option name = "patient_id">Choose Patient</option>
+                            <% for(let i =0;i<patients.length;i++){ %>
+                                <option value="<%= patients[i].doc_code %> "><%= patients[i].FName +" "+patients[i].LName %></option>
+                            <% } %>  
+                        </select>
+                    </div>
+                </div>
+                <div class="input">
+                    <div class="details">Main Doctor</div>
+                    <div class="selecto">
+                        <select name="main_doc"  id="slt-1">
+                            <option >Choose Main Doctor</option>
+                            <% for(let i =0;i<docs.length;i++){ %>
+                                <option value="<%= docs[i].code %>"> 
+                                    <%= docs[i].Name %>
+                                </option>
+                            <% } %>  
+                        </select>
+                    </div>
+                </div>
+                <div class="input">
+                    <div class="details">Assistant Doctor</div>
+                    <div class="selecto">
+                        <select name="ass_doc" id="slt-1">
+                            <option >Choose Assistant Doctor</option>
+                            <% for(let i =0;i<docs.length;i++){ %>
+                                <option value="<%= docs[i].code %> "><%= docs[i].Name%></option>
+                            <% } %>  
+                        </select>
+                    </div>
+                </div>
+                <div class="input">
+                    <div class="details">Room Number</div>
+                    <div class="selecto">
+                        <select name="room_ID" id="slt-1">
+                            <option>Choose An Option</option>
+                            <option value="1">Room 1</option>
+                            <option value="2">Room 2</option>
+                            <option value="3">Room 3</option>
+                            <option value="4">Room 4</option>
+                            <option value="5">Room 5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input">
+                    <span class="details" >Date Of Operation</span>
+                    <input type="date" name = "op_date" autocomplete="on" required="">
+                </div>
+                <div class="multi-selector">
+                    <span class="details" >Choose Nurses</span>
+                    <div class="select-field" name="nurses">
+                        <input type="text"  placeholder="Choose Nurses" id="ghgh" class="input-selector">
+                        <span class="down-arrow">▾</span>
+                    </div>
+                    <!---------List of checkboxes and options----------->
+                    <div class="list">
+                        <% for(let i =0;i<nurses.length;i++){ %>
+                            <label for="task1" class="task">
+                                <input type="checkbox" name="" id="task1">
+                                <%= nurses[i].FName + " "+ nurses[i].LName%>
+                            </label>
+                        <% } %>  
+                        
+                        
+                    </div>
+                </div>
+                <div class="input">
+                    <span class="details" name= "cost">Cost</span>
+                    <input type="number" placeholder="Enter the cost" autocomplete="on" required="">
+                </div>
+                <div class="input">
+                    <span class="details">Operation Name</span>
+                    <input type="text"  name= "op_name" placeholder="Enter the operation name" autocomplete="on" required="">
+                </div>
+            </div>
+            
+            <div class="button">
+                <a href="/new-operations-2" target="_self">
+                    <input type="submit" value="Next" id = "btnsubmit">
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    
+
+    document.querySelector('.select-field').addEventListener('click',()=>{
+        document.querySelector('.list').classList.toggle('show');
+        document.querySelector('.down-arrow').classList.toggle('rotate180');
+
+    });
+</script>

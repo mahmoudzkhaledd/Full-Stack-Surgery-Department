@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+   <form action="#">
+    <input type="file" id="file" accept="image/*">
+    <input type="button" id="btn" value="Click">
+   </form>
+    <script>
+        document.getElementById('btn')
+            .addEventListener('click', (e) => {
+                e.preventDefault();
+                let h = new Headers();
+
+                h.append('Accept','application/json');
+                
+                let fd = new FormData();
+                let image = document.getElementById('file').files[0];
+                fd.append("image",image);
+                let req = new Request('/test',{
+                    method:'POST',
+                    headers: h,
+                    mode:'no-cors',
+                    body:fd
+                });
+                fetch(req).then((re)=>{
+                    console.log("Sent");
+                }).catch((err)=>{
+                    console.log("err");
+                })
+            });
+    </script>
+</body>
+
+</html>
